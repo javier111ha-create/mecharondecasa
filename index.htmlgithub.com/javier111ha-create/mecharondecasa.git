@@ -1,1 +1,67 @@
-
+mecharon-de-casa/
+│
+├── index.html                         ← Home principal (SPA)
+├── manifest.json                      ← PWA manifest
+├── sw.js                              ← Service Worker
+├── robots.txt                         ← SEO
+├── sitemap.xml                        ← SEO
+├── vercel.json                        ← Config de deploy
+├── .env.example                       ← Variables de entorno de referencia
+│
+├── pages/
+│   ├── modal.html                     ← Modal de producto (componente)
+│   ├── carrito.html                   ← Página completa del carrito
+│   ├── checkout.html                  ← Página de checkout
+│   ├── menu.html                      ← Carta completa (página dedicada)
+│   ├── delivery.html                  ← Página de delivery
+│   ├── reservas.html                  ← Página de reservas
+│   ├── promociones.html               ← Página de promos
+│   └── contacto.html                  ← Página de contacto
+│
+├── assets/
+│   │
+│   ├── css/
+│   │   ├── variables.css              ← Tokens de diseño (CARGA PRIMERO)
+│   │   ├── global.css                 ← Reset, utilidades, botones, animaciones
+│   │   ├── navbar.css                 ← Barra de navegación y búsqueda
+│   │   ├── hero.css                   ← Sección hero
+│   │   ├── menu.css                   ← Carta, filtros, productos, promos, delivery
+│   │   ├── modal.css                  ← Modal de producto, pan, extras, upsell
+│   │   ├── carrito.css                ← Carrito lateral (drawer) y página carrito
+│   │   ├── promociones.css            ← Tarjetas de promo (si se separa de menu.css)
+│   │   ├── footer.css                 ← Footer global
+│   │   └── responsive.css            ← Media queries globales (CARGA ÚLTIMA)
+│   │
+│   ├── js/
+│   │   ├── app.js                     ← Bootstrap principal (CARGA PRIMERO)
+│   │   ├── menu.js                    ← Datos y render del menú
+│   │   ├── cart.js                    ← Motor del carrito
+│   │   ├── modal.js                   ← Lógica del modal de producto
+│   │   ├── checkout.js                ← Lógica de checkout
+│   │   ├── whatsapp.js                ← Mensajes y automatizaciones WA
+│   │   ├── mercadoPago.js             ← Integración Mercado Pago
+│   │   ├── promociones.js             ← Countdown y lógica de promos
+│   │   └── upsells.js                 ← Datos y lógica de upsells/extras
+│   │
+│   ├── data/
+│   │   ├── menu.json                  ← Productos de alimentos (fuente única)
+│   │   ├── bebidas.json               ← Coctelería y bebidas
+│   │   ├── extras.json                ← Ingredientes extras con precios
+│   │   ├── upsells.json               ← Upsells (bebidas, papas, postres)
+│   │   └── promociones.json           ← Promos semanales con horarios
+│   │
+│   └── images/
+│       ├── branding/                  ← Logo, favicon, og-image
+│       ├── productos/                 ← Fotos de alimentos
+│       ├── tragos/                    ← Fotos de coctelería
+│       ├── promociones/               ← Imágenes de promos
+│       ├── extras/                    ← Imágenes de ingredientes extras
+│       ├── bebidas/                   ← Imágenes de bebidas upsell
+│       └── postres/                   ← Imágenes de postres
+│
+├── api/
+│   ├── mercadoPago.js                 ← Endpoint webhook de MP (Node/Vercel)
+│   ├── whatsapp.js                    ← Disparador de mensajes WA Business
+│   └── checkout.js                   ← Creación de preferencias MP (backend)
+│
+└── README.md                          ← Documentación del proyecto
