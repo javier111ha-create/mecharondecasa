@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="es" itemscope itemtype="https://schema.org/Restaurant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#F5C400">
+<meta name="description" content="Mecharon de Casa — Restobar premium en Santiago. Sándwiches mechados artesanales, hamburguesas, coctelería de autor y delivery. Reservas y pedidos por WhatsApp.">
+<meta name="keywords" content="mecharon de casa, restobar santiago, sandwiches mechados, hamburguesas artesanales, cocteleria autor, delivery santiago, reservas restaurant">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Mecharon de Casa">
+<meta property="og:title" content="Mecharon de Casa · Restobar Premium Santiago">
+<meta property="og:description" content="Sándwiches mechados artesanales, hamburguesas, coctelería de autor y delivery en Santiago.">
+<meta property="og:image" content="assets/images/branding/og-image.jpg">
+<meta property="og:url" content="https://mecharondecasa.cl">
+<meta property="og:type" content="restaurant">
+<meta property="og:locale" content="es_CL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mecharon de Casa · Restobar Premium">
+<meta name="twitter:description" content="Sándwiches mechados artesanales y coctelería de autor en Santiago.">
+<meta name="twitter:image" content="assets/images/branding/og-image.jpg">
+<link rel="canonical" href="https://mecharondecasa.cl">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/images/branding/favicon.ico">
+<link rel="apple-touch-icon" href="assets/images/branding/icon-192x192.png">
+<title>Mecharon de Casa · Restobar Premium Santiago</title>
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Mecharon de Casa",
+  "description": "Restobar premium en Santiago con sándwiches mechados artesanales, hamburguesas, coctelería de autor y delivery.",
+  "url": "https://mecharondecasa.cl",
+  "telephone": "+56988252884",
+  "email": "Javier.111.@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Santiago", "addressCountry": "CL" },
+  "priceRange": "$$",
+  "servesCuisine": ["Chilean", "Fusion", "Cocktails"],
+  "openingHoursSpecification": [
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"18:00","closes":"00:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday"],"opens":"18:00","closes":"01:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"17:00","closes":"01:00"}
+  ],
+  "sameAs": ["https://instagram.com/mecharondecasa"]
+}
+</script>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap"></noscript>
+<!-- CSS: orden estricto -->
+<link rel="stylesheet" href="assets/css/variables.css">
+<link rel="stylesheet" href="assets/css/global.css">
+<link rel="stylesheet" href="assets/css/navbar.css">
+<link rel="stylesheet" href="assets/css/hero.css">
+<link rel="stylesheet" href="assets/css/menu.css">
+<link rel="stylesheet" href="assets/css/modal.css">
+<link rel="stylesheet" href="assets/css/carrito.css">
+<link rel="stylesheet" href="assets/css/footer.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+<!-- SKIP LINK (accesibilidad) -->
+<a class="skip-link" href="#carta">Ir al contenido principal</a>
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="scrollProgress"></div>
+
+<!-- PROMO STRIP -->
+<div id="promoStrip"></div>
+
+<!-- ════════════════════════════════════
+     NAVBAR
+     ════════════════════════════════════ -->
+<nav id="nav" role="navigation" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand" aria-label="Mecharon de Casa - Inicio">
+      <span class="nav-brand-name">MECHARON <em>DE CASA</em></span>
+      <span class="nav-brand-sub">Restobar · Est. 2018</span>
+    </a>
+
+    <ul class="nav-links" role="list">
+      <li><a href="#carta"      class="nav-link">Carta</a></li>
+      <li><a href="#promociones"class="nav-link">Promos</a></li>
+      <li><a href="#delivery"   class="nav-link">Delivery</a></li>
+      <li><a href="#reservas"   class="nav-link">Reservas</a></li>
+      <li><a href="#nosotros"   class="nav-link">Nosotros</a></li>
+      <li><a href="#contacto"   class="nav-link">Contacto</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-search-btn btn btn-icon btn--ghost" aria-label="Buscar" onclick="openSearch()">🔍</button>
+      <button class="btn btn-sm btn--outline btn-reserva-nav" onclick="openResModal()">📅 Reservar</button>
+      <button class="nav-cart-btn btn btn-sm btn--yellow" onclick="Cart.toggleDrawer()" aria-label="Carrito">
+        🛒 <span class="cart-count" style="display:none">0</span>
+      </button>
+      <button class="hamburger" id="hambBtn" onclick="toggleMob()" aria-label="Menú" aria-expanded="false" aria-controls="mobNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav" aria-hidden="true" role="dialog" aria-label="Menú móvil">
+  <a href="#carta"       onclick="closeMob()">🍔 Carta</a>
+  <a href="#promociones" onclick="closeMob()">🔥 Promociones</a>
+  <a href="#delivery"    onclick="closeMob()">🛵 Delivery</a>
+  <a href="#reservas"    onclick="closeMob()">📅 Reservas</a>
+  <a href="#nosotros"    onclick="closeMob()">❤️ Nosotros</a>
+  <a href="#contacto"    onclick="closeMob()">📞 Contacto</a>
+  <div class="mob-nav-divider"></div>
+  <a href="https://wa.me/56988252884" target="_blank" rel="noopener">💬 WhatsApp</a>
+  <a href="https://instagram.com/mecharondecasa" target="_blank" rel="noopener">📸 Instagram</a>
+</div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay" role="search" aria-label="Buscar productos">
+  <div class="search-inner">
+    <div class="search-bar-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="search" id="searchBig" class="search-input" placeholder="Buscar sándwich, trago, promo…" autocomplete="off" aria-label="Buscar">
+      <button class="search-close-btn" onclick="closeSearch()" aria-label="Cerrar búsqueda">✕</button>
+    </div>
+    <div id="searchResults" class="search-results" role="listbox" aria-label="Resultados"></div>
+    <div class="search-hint">Escribe para buscar en el menú completo · <kbd>Esc</kbd> para cerrar</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     HERO
+     ════════════════════════════════════ -->
+<section id="hero" aria-label="Mecharon de Casa">
+  <div class="hero-bg-video" aria-hidden="true">
+    <div class="hero-overlay"></div>
+    <div class="hero-particles" id="heroParticles"></div>
+  </div>
+  <div class="hero-content u-container">
+    <div class="hero-eyebrow">🍔 RESTOBAR · SANTIAGO · EST. 2018</div>
+    <h1 class="hero-title">
+      <span class="ht-line1">MECHARON</span>
+      <em class="ht-line2">de Casa</em>
+    </h1>
+    <p class="hero-subtitle">Sándwiches mechados artesanales, hamburguesas de autor y coctelería premium. El sabor que buscas, en el ambiente que mereces.</p>
+    <div class="hero-ctas">
+      <a href="#carta" class="btn btn-xl btn--yellow">🍔 Ver Menú</a>
+      <button class="btn btn-xl btn--outline" onclick="openResModal()">📅 Reservar Mesa</button>
+      <a href="https://wa.me/56988252884?text=Hola!%20Quiero%20pedir%20delivery" target="_blank" rel="noopener" class="btn btn-xl btn--wa">💬 Pedir por WhatsApp</a>
+    </div>
+    <div class="hero-scroll-indicator" aria-hidden="true">
+      <div class="scroll-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar" aria-label="Estadísticas">
+  <div class="stats-inner">
+    <div class="stat reveal">
+      <div class="stat-num">+186</div>
+      <div class="stat-label">PRODUCTOS EN CARTA</div>
+    </div>
+    <div class="stat reveal" style="animation-delay:.1s">
+      <div class="stat-num">2018</div>
+      <div class="stat-label">AÑO DE FUNDACIÓN</div>
+    </div>
+    <div class="stat reveal" style="animation-delay:.2s">
+      <div class="stat-num">5★</div>
+      <div class="stat-label">CALIFICACIÓN CLIENTES</div>
+    </div>
+    <div class="stat reveal" style="animation-delay:.3s">
+      <div class="stat-num">8</div>
+      <div class="stat-label">ZONAS DE DELIVERY</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     CARTA / MENÚ
+     ════════════════════════════════════ -->
+<section id="carta" class="u-section" aria-labelledby="cartaTitle">
+  <div class="u-container">
+    <!-- HEADER -->
+    <div class="menu-hero text-center reveal">
+      <div class="u-tag">🍽️ NUESTRA CARTA 2026</div>
+      <h2 class="u-title" id="cartaTitle">
+        Lo Mejor de<br>
+        <em>Mecharon de Casa</em>
+      </h2>
+      <p class="menu-hero-desc">Ingredientes frescos, recetas artesanales y el sabor que nos hace únicos. Elige tu favorito.</p>
+    </div>
+
+    <!-- HH BANNER -->
+    <div class="hh-banner reveal">
+      <div class="hh-left">
+        <span class="hh-icon">⏰</span>
+        <div>
+          <div class="hh-title">HAPPY HOUR · 18:00 A 19:00</div>
+          <div class="hh-sub">Mojitos, Pisco Sour, Caipirinha, Cerveza Kross · Precios especiales · Solo con consumo de alimentos</div>
+        </div>
+      </div>
+      <a href="#promociones" class="btn btn-sm btn--outline">Ver promos →</a>
+    </div>
+
+    <!-- TARJETAS DE MENÚ -->
+    <div class="menu-cards-grid">
+
+      <!-- COMIDAS -->
+      <div class="menu-main-card mmc-food reveal" id="cardComidas">
+        <div class="mmc-header" onclick="toggleMenuCard('comidas')" role="button" tabindex="0" aria-expanded="false" aria-controls="bodyComidas">
+          <span class="mmc-emoji">🍔</span>
+          <div class="mmc-info">
+            <div class="mmc-title">COMIDAS</div>
+            <div class="mmc-sub">Sándwiches · Churrascos · Burgers · Entradas</div>
+            <span class="mmc-count">69 productos</span>
+          </div>
+          <span class="mmc-arrow">›</span>
+        </div>
+        <div class="accordion-body" id="bodyComidas">
+          <div class="accordion-inner">
+            <!-- BÚSQUEDA COMIDAS -->
+            <div class="menu-search-wrap">
+              <span class="menu-search-icon">🔍</span>
+              <input
+                type="search"
+                class="menu-search"
+                placeholder="Buscar en comidas…"
+                oninput="searchMenu('food', this.value)"
+                aria-label="Buscar comidas"
+              >
+            </div>
+            <!-- FILTROS COMIDAS -->
+            <div class="filter-tabs" id="foodFilters" role="tablist" aria-label="Categorías de comidas">
+              <button class="filter-tab active" role="tab" onclick="filterCat('food','all',this)">Todo</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('food','sandwich',this)">🥪 Sándwiches</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('food','churrasco',this)">🥩 Churrascos</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('food','burger',this)">🍔 Burgers</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('food','entrada',this)">🐟 Entradas</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('food','tabla',this)">🍽️ Tablas</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('food','papas',this)">🍟 Papas</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('food','postre',this)">🍰 Postres</button>
+            </div>
+            <!-- LISTA DE PRODUCTOS -->
+            <div id="foodList" role="list" aria-label="Productos de comida"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COCTELERÍA -->
+      <div class="menu-main-card mmc-cocktail reveal" id="cardCocteleria" style="animation-delay:.1s">
+        <div class="mmc-header" onclick="toggleMenuCard('cocteleria')" role="button" tabindex="0" aria-expanded="false" aria-controls="bodyCocteleria">
+          <span class="mmc-emoji">🍹</span>
+          <div class="mmc-info">
+            <div class="mmc-title">COCTELERÍA</div>
+            <div class="mmc-sub">Cocteles · Destilados · Cervezas · Vinos</div>
+            <span class="mmc-count">117 productos</span>
+          </div>
+          <span class="mmc-arrow">›</span>
+        </div>
+        <div class="accordion-body" id="bodyCocteleria">
+          <div class="accordion-inner">
+            <!-- BÚSQUEDA COCTELERÍA -->
+            <div class="menu-search-wrap">
+              <span class="menu-search-icon">🔍</span>
+              <input
+                type="search"
+                class="menu-search"
+                placeholder="Buscar en coctelería…"
+                oninput="searchMenu('coct', this.value)"
+                aria-label="Buscar cocteles"
+              >
+            </div>
+            <!-- FILTROS COCTELERÍA -->
+            <div class="filter-tabs" id="coctFilters" role="tablist" aria-label="Categorías de coctelería">
+              <button class="filter-tab active" role="tab" onclick="filterCat('coct','all',this)">Todo</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('coct','ron',this)">🍃 Ron</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('coct','vodka',this)">🫙 Vodka</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('coct','pisco',this)">🍋 Pisco</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('coct','gin',this)">🌿 Gin</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('coct','whisky',this)">🥃 Whisky</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('coct','spritz',this)">🍊 Spritz</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('coct','autor',this)">⭐ Autor</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('coct','mocktail',this)">🌱 Sin Alcohol</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('coct','destilado',this)">💎 Destilados</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('coct','cerveza',this)">🍺 Cervezas</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('coct','shot',this)">🥊 Shots</button>
+              <button class="filter-tab" role="tab" onclick="filterCat('coct','bebestible',this)">🥤 Bebestibles</button>
+            </div>
+            <!-- LISTA DE COCTELES -->
+            <div id="coctList" role="list" aria-label="Productos de coctelería"></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /menu-cards-grid -->
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     PROMOCIONES
+     ════════════════════════════════════ -->
+<section id="promociones" class="u-section" aria-labelledby="promosTitle">
+  <div class="u-container">
+    <div class="text-center reveal">
+      <div class="u-tag">🔥 PROMOS SEMANALES</div>
+      <h2 class="u-title" id="promosTitle">
+        Noches que<br>
+        <em>valen la pena</em>
+      </h2>
+      <p class="u-subtitle" style="margin:1rem auto 2rem">Cada noche tiene su magia. Descuentos, combos y experiencias diseñadas para que vuelvas siempre.</p>
+    </div>
+    <!-- PROMOS GRID (renderizado por promociones.js) -->
+    <div class="promos-grid" id="promosGrid" aria-label="Promociones semanales"></div>
+    <p class="promo-disclaimer">
+      * Promociones válidas con consumo mínimo de alimentos.<br>
+      <strong>No acumulables</strong> entre sí ni con otras ofertas · Sujeto a disponibilidad del local.
+    </p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     DELIVERY
+     ════════════════════════════════════ -->
+<section id="delivery" class="u-section" aria-labelledby="deliveryTitle">
+  <div class="u-container">
+    <div class="delivery-layout">
+      <!-- TEXTO -->
+      <div class="delivery-text reveal">
+        <div class="u-tag">🛵 DELIVERY A DOMICILIO</div>
+        <h2 class="big-title" id="deliveryTitle">
+          LO LLEVAMOS<br>
+          <em>Donde Estés</em>
+        </h2>
+        <p>Lo mejor de Mecharon de Casa llega a tu puerta. Pedidos frescos, rápidos y con todo el sabor que nos caracteriza.</p>
+        <div class="delivery-btns-grid">
+          <a href="https://wa.me/56988252884?text=Hola!%20Quiero%20pedir%20delivery" target="_blank" rel="noopener" class="d-btn">
+            <span class="d-btn-icon">💬</span>
+            <div><div class="d-btn-name">WhatsApp</div><div class="d-btn-sub">Respuesta rápida</div></div>
+          </a>
+          <a href="pages/carrito.html" class="d-btn">
+            <span class="d-btn-icon">🛒</span>
+            <div><div class="d-btn-name">Pedir Online</div><div class="d-btn-sub">Pago seguro</div></div>
+          </a>
+          <div class="d-btn" onclick="openResModal()">
+            <span class="d-btn-icon">📅</span>
+            <div><div class="d-btn-name">Reservar Mesa</div><div class="d-btn-sub">Sin esperas</div></div>
+          </div>
+          <a href="tel:+56988252884" class="d-btn">
+            <span class="d-btn-icon">📞</span>
+            <div><div class="d-btn-name">Llamar</div><div class="d-btn-sub">+56 9 8825 2884</div></div>
+          </a>
+        </div>
+      </div>
+      <!-- ZONAS -->
+      <div class="zones-card reveal" style="animation-delay:.15s">
+        <div class="zones-title">🗺 Zonas de Cobertura</div>
+        <div class="zone-row"><span class="zone-name">📍 Santiago Centro</span><span class="zone-time">15–25 min</span><span class="zone-cost">$990</span></div>
+        <div class="zone-row"><span class="zone-name">📍 Providencia</span><span class="zone-time">20–30 min</span><span class="zone-cost">$1.500</span></div>
+        <div class="zone-row"><span class="zone-name">📍 Las Condes</span><span class="zone-time">25–40 min</span><span class="zone-cost">$1.500</span></div>
+        <div class="zone-row"><span class="zone-name">📍 Ñuñoa</span><span class="zone-time">20–35 min</span><span class="zone-cost">$1.500</span></div>
+        <div class="zone-row"><span class="zone-name">📍 Macul</span><span class="zone-time">25–35 min</span><span class="zone-cost">$1.500</span></div>
+        <div class="zone-row"><span class="zone-name">📍 La Florida</span><span class="zone-time">30–45 min</span><span class="zone-cost">$1.990</span></div>
+        <div class="zone-row"><span class="zone-name">📍 San Miguel</span><span class="zone-time">25–40 min</span><span class="zone-cost">$1.990</span></div>
+        <div class="zone-row"><span class="zone-name">📍 Otra zona</span><span class="zone-time">40–60 min</span><span class="zone-cost">$2.500</span></div>
+        <div class="zones-note">Horario de delivery: Lun–Jue 18:00–23:30 · Vie 18:00–00:30 · Sáb 17:00–00:30</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     RESERVAS
+     ════════════════════════════════════ -->
+<section id="reservas" class="u-section" aria-labelledby="resTitle">
+  <div class="u-container">
+    <div class="reservas-layout">
+      <!-- INFO -->
+      <div class="reservas-info reveal">
+        <div class="u-tag">📅 RESERVA TU MESA</div>
+        <h2 class="big-title" id="resTitle">
+          VIVE LA<br>
+          <em>Experiencia</em>
+        </h2>
+        <p>Reserva tu mesa y disfruta de una noche perfecta con los mejores sándwiches mechados y coctelería de autor de Santiago.</p>
+        <!-- HORARIOS -->
+        <div class="horarios-list" aria-label="Horarios de atención">
+          <div class="horario-row"><span class="horario-dia">Lun – Jue</span><span class="horario-hora">18:00 – 00:00</span></div>
+          <div class="horario-row"><span class="horario-dia">Viernes</span><span class="horario-hora">18:00 – 01:00</span></div>
+          <div class="horario-row"><span class="horario-dia">Sábado</span><span class="horario-hora">17:00 – 01:00</span></div>
+          <div class="horario-row"><span class="horario-dia">Domingo</span><span class="horario-hora">Cerrado</span></div>
+        </div>
+        <a href="https://wa.me/56988252884?text=Hola!%20Quiero%20reservar%20una%20mesa" target="_blank" rel="noopener" class="btn btn--wa btn-lg" style="margin-top:1.25rem">
+          💬 Reservar por WhatsApp
+        </a>
+      </div>
+      <!-- FORMULARIO -->
+      <div class="res-form-card reveal" style="animation-delay:.1s">
+        <div class="res-form-title">📋 Solicitar Reserva</div>
+        <div class="fg-row">
+          <div class="fg">
+            <label class="fl" for="resNombre">Nombre</label>
+            <input type="text" class="fi" id="resNombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="fg">
+            <label class="fl" for="resTelefono">WhatsApp</label>
+            <input type="tel" class="fi" id="resTelefono" placeholder="+56 9 XXXX XXXX" required>
+          </div>
+        </div>
+        <div class="fg-row">
+          <div class="fg">
+            <label class="fl" for="resFecha">Fecha</label>
+            <input type="date" class="fi" id="resFecha" required>
+          </div>
+          <div class="fg">
+            <label class="fl" for="resHora">Hora</label>
+            <select class="fi" id="resHora">
+              <option>18:00</option><option>18:30</option><option>19:00</option>
+              <option>19:30</option><option>20:00</option><option>20:30</option>
+              <option>21:00</option><option>21:30</option><option>22:00</option>
+              <option>22:30</option><option>23:00</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg-row">
+          <div class="fg">
+            <label class="fl" for="resPersonas">Personas</label>
+            <select class="fi" id="resPersonas">
+              <option>1</option><option>2</option><option selected>3</option>
+              <option>4</option><option>5</option><option>6</option>
+              <option>7</option><option>8+</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label class="fl" for="resOcasion">Ocasión</label>
+            <select class="fi" id="resOcasion">
+              <option>Sin ocasión especial</option>
+              <option>🎂 Cumpleaños</option>
+              <option>💑 Aniversario</option>
+              <option>🎉 Celebración</option>
+              <option>💼 Reunión de negocios</option>
+              <option>👨‍👩‍👧 Reunión familiar</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg">
+          <label class="fl" for="resNotas">Notas (opcional)</label>
+          <textarea class="fi" id="resNotas" placeholder="Alérgenos, silla para bebé, preferencias especiales…" style="min-height:70px"></textarea>
+        </div>
+        <button class="btn-form" onclick="enviarReserva()">
+          📅 Solicitar Reserva por WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     NOSOTROS
+     ════════════════════════════════════ -->
+<section id="nosotros" class="u-section" aria-labelledby="nosotrosTitle">
+  <div class="u-container">
+    <div class="nosotros-layout">
+      <!-- TEXTO -->
+      <div class="nosotros-text reveal">
+        <div class="u-tag">❤️ NUESTRA HISTORIA</div>
+        <h2 class="big-title" id="nosotrosTitle">
+          NACIMOS<br>
+          <em>con Sabor</em>
+        </h2>
+        <p>Mecharon de Casa nació en 2018 con una misión simple: llevar el mejor sándwich mechado de Chile a la mesa de quienes lo merecen. Comenzamos como un sueño familiar y hoy somos el restobar de referencia en Santiago.</p>
+        <p>Cada ingrediente es elegido con cuidado. Cada receta, perfeccionada con el tiempo. Porque creemos que la buena comida no es un lujo, es un derecho.</p>
+        <div class="values-grid">
+          <div class="val-card"><div class="val-icon">🥩</div><div class="val-title">CALIDAD ARTESANAL</div><div class="val-text">Ingredientes frescos y recetas propias sin conservantes.</div></div>
+          <div class="val-card"><div class="val-icon">❤️</div><div class="val-title">HECHO CON AMOR</div><div class="val-text">Cada plato preparado como si fuera para nuestra familia.</div></div>
+          <div class="val-card"><div class="val-icon">🍹</div><div class="val-title">COCTELERÍA PREMIUM</div><div class="val-text">Tragos de autor con los mejores destilados del mercado.</div></div>
+          <div class="val-card"><div class="val-icon">🌟</div><div class="val-title">EXPERIENCIA TOTAL</div><div class="val-text">Ambiente, música y servicio pensados para ti.</div></div>
+        </div>
+      </div>
+      <!-- QUOTE BOX -->
+      <div class="quote-box reveal" style="animation-delay:.15s">
+        <p class="quote-text">"Mecharon de Casa no es solo un restaurante. Es el lugar donde el sabor te abraza y las noches se hacen recuerdos."</p>
+        <div class="quote-divider"><div class="qd-line"></div><span class="qd-text">Mecharon de Casa · 2018</span><div class="qd-line"></div></div>
+        <div class="quote-stats">
+          <div class="qs-item"><div class="qs-num">+6</div><div class="qs-label">AÑOS DE EXPERIENCIA</div></div>
+          <div class="qs-item"><div class="qs-num">+186</div><div class="qs-label">PRODUCTOS EN CARTA</div></div>
+          <div class="qs-item"><div class="qs-num">5★</div><div class="qs-label">CALIFICACIÓN</div></div>
+          <div class="qs-item"><div class="qs-num">8</div><div class="qs-label">ZONAS DELIVERY</div></div>
+        </div>
+        <a href="https://instagram.com/mecharondecasa" target="_blank" rel="noopener" class="btn btn--outline btn-block" style="margin-top:.5rem">
+          📸 Síguenos en Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     NEWSLETTER
+     ════════════════════════════════════ -->
+<div class="nl-strip" aria-label="Suscripción">
+  <div class="nl-text">
+    <h3>🔥 NO TE PIERDAS NADA</h3>
+    <p>Promos exclusivas, lanzamientos y novedades del local</p>
+  </div>
+  <div class="nl-form">
+    <input type="email" class="nl-input" id="nlEmail" placeholder="tu@email.com" aria-label="Email para newsletter">
+    <button class="nl-submit" onclick="subscribeNL()">SUSCRIBIRSE</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     CONTACTO
+     ════════════════════════════════════ -->
+<section id="contacto" class="u-section" aria-labelledby="contactoTitle">
+  <div class="u-container">
+    <div class="text-center reveal" style="margin-bottom:3rem">
+      <div class="u-tag">📞 ENCUÉNTRANOS</div>
+      <h2 class="u-title" id="contactoTitle">Estamos<br><em>Aquí para Ti</em></h2>
+    </div>
+    <div class="contacto-layout">
+      <div>
+        <div class="contact-list">
+          <a href="https://wa.me/56988252884" target="_blank" rel="noopener" class="contact-item reveal">
+            <div class="contact-ic">💬</div>
+            <div><div class="contact-lbl">WhatsApp</div><div class="contact-val">+56 9 8825 2884</div></div>
+          </a>
+          <a href="https://instagram.com/mecharondecasa" target="_blank" rel="noopener" class="contact-item reveal" style="animation-delay:.05s">
+            <div class="contact-ic">📸</div>
+            <div><div class="contact-lbl">Instagram</div><div class="contact-val">@mecharondecasa</div></div>
+          </a>
+          <a href="mailto:Javier.111.@gmail.com" class="contact-item reveal" style="animation-delay:.1s">
+            <div class="contact-ic">✉️</div>
+            <div><div class="contact-lbl">Email</div><div class="contact-val">Javier.111.@gmail.com</div></div>
+          </a>
+          <a href="https://maps.google.com/?q=Santiago+Chile" target="_blank" rel="noopener" class="contact-item reveal" style="animation-delay:.15s">
+            <div class="contact-ic">📍</div>
+            <div><div class="contact-lbl">Ubicación</div><div class="contact-val">Santiago, Chile</div></div>
+          </a>
+        </div>
+      </div>
+      <div class="map-placeholder reveal">
+        <div class="map-icon">🗺</div>
+        <div class="map-title">ENCUÉNTRANOS</div>
+        <p class="map-sub">Santiago, Chile · Confirma la dirección exacta por WhatsApp</p>
+        <a href="https://wa.me/56988252884?text=Hola!%20Me%20pueden%20dar%20la%20dirección%20exacta?" target="_blank" rel="noopener" class="btn btn--wa" style="margin-top:1rem">
+          💬 Pedir dirección
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="footer-layout">
+    <!-- MARCA -->
+    <div class="footer-brand">
+      <div class="footer-brand-name">MECHARON <span style="color:var(--yellow)">DE CASA</span></div>
+      <div class="footer-brand-sub">Restobar · Santiago · Est. 2018</div>
+      <p class="footer-tagline">El sabor artesanal que mereces, en el ambiente que buscas. Sándwiches mechados, hamburguesas y coctelería de autor.</p>
+      <div class="footer-socials">
+        <a href="https://instagram.com/mecharondecasa" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">📸</a>
+        <a href="https://wa.me/56988252884" target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp">💬</a>
+        <a href="https://facebook.com/mecharondecasa" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">👍</a>
+        <a href="https://tiktok.com/@mecharondecasa" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok">🎵</a>
+      </div>
+    </div>
+    <!-- MENÚ FOOTER -->
+    <div class="footer-col">
+      <h4>Menú</h4>
+      <nav class="footer-links" aria-label="Menú del footer">
+        <a href="#carta">🍔 Sándwiches Mechados</a>
+        <a href="#carta">🥩 Churrascos</a>
+        <a href="#carta">🍔 Hamburguesas</a>
+        <a href="#carta">🍟 Papas Especiales</a>
+        <a href="#carta">🍹 Coctelería de Autor</a>
+        <a href="#carta">🍺 Cervezas y Vinos</a>
+      </nav>
+    </div>
+    <!-- SERVICIOS -->
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <nav class="footer-links" aria-label="Servicios">
+        <a href="#delivery">🛵 Delivery a Domicilio</a>
+        <a href="#reservas">📅 Reserva de Mesas</a>
+        <a href="pages/carrito.html">🛒 Pedido Online</a>
+        <a href="#promociones">🔥 Promos Semanales</a>
+        <a href="https://link.mercadopago.cl/javierhidalgoa" target="_blank" rel="noopener">💳 Pagar con MP</a>
+      </nav>
+    </div>
+    <!-- HORARIOS -->
+    <div class="footer-col">
+      <h4>Horarios</h4>
+      <div class="footer-schedule">
+        <div class="footer-schedule-row"><span class="fsr-day">Lun – Jue</span><span class="fsr-time">18:00 – 00:00</span></div>
+        <div class="footer-schedule-row"><span class="fsr-day">Viernes</span><span class="fsr-time">18:00 – 01:00</span></div>
+        <div class="footer-schedule-row"><span class="fsr-day">Sábado</span><span class="fsr-time">17:00 – 01:00</span></div>
+        <div class="footer-schedule-row"><span class="fsr-day">Domingo</span><span class="fsr-time">Cerrado</span></div>
+      </div>
+    </div>
+  </div>
+  <!-- FOOTER BOTTOM -->
+  <div class="footer-bottom">
+    <div class="footer-copy">
+      © 2018–2026 Mecharon de Casa · Hecho con ❤️ en Santiago, Chile ·
+      <a href="#">Términos y condiciones</a> · <a href="#">Privacidad</a>
+    </div>
+    <div class="footer-est">EST. 2018</div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════
+     CART DRAWER
+     ════════════════════════════════════ -->
+<div class="cart-overlay" id="cartOverlay" onclick="Cart.closeDrawer()" aria-hidden="true"></div>
+<aside class="cart-drawer" id="cartDrawer" role="complementary" aria-label="Carrito de compras">
+  <div class="drawer-header">
+    <h3>TU PEDIDO <span class="drawer-count" id="drawerCount">0</span></h3>
+    <button class="btn-close-drawer" onclick="Cart.closeDrawer()" aria-label="Cerrar carrito">✕</button>
+  </div>
+  <div class="drawer-items" id="drawerItems"></div>
+  <div class="drawer-footer" id="drawerFooter" style="display:none">
+    <div class="drawer-sub">
+      <span>Subtotal</span>
+      <span id="drawerSub">$0</span>
+    </div>
+    <div class="drawer-total">
+      <span class="drawer-total-label">TOTAL</span>
+      <span class="drawer-total-amount" id="drawerTotal">$0</span>
+    </div>
+    <button class="btn-drawer-mp" onclick="Cart.checkoutMP()">💳 PAGAR CON MERCADO PAGO</button>
+    <button class="btn-drawer-wa" onclick="Cart.waOrder()">💬 Pedir por WhatsApp</button>
+  </div>
+</aside>
+
+<!-- ════════════════════════════════════
+     PRODUCT MODAL
+     ════════════════════════════════════ -->
+<div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-label="Detalle del producto">
+  <div class="modal-box">
+    <div class="modal-pill" aria-hidden="true"></div>
+    <button class="modal-close" onclick="closeModal('productModal')" aria-label="Cerrar">✕</button>
+    <!-- HERO -->
+    <div class="modal-hero" id="mHero">
+      <span class="modal-emoji" id="mEmoji">🍔</span>
+      <span class="modal-hero-badge badge" id="mBadgeHero" style="display:none"></span>
+    </div>
+    <!-- SCROLL BODY -->
+    <div class="modal-body">
+      <!-- INFO -->
+      <div class="modal-info">
+        <div class="modal-cat" id="mCat">CATEGORÍA</div>
+        <div class="modal-name" id="mName">Nombre del producto</div>
+        <div class="modal-desc" id="mDesc">Descripción…</div>
+        <div class="modal-ingred" id="mIngred"></div>
+        <div class="modal-base-label" id="mBaseLabel"></div>
+      </div>
+      <!-- TAGS -->
+      <div class="modal-tags" id="mTags"></div>
+      <!-- PAN SELECTOR -->
+      <div class="modal-section" id="mPanSection" style="display:none">
+        <div class="modal-section-title">🥖 ELIGE TU PAN <span class="req">* Obligatorio</span></div>
+        <div class="pan-grid">
+          <div class="pan-card" onclick="selectPan('Fajita',2500,this)" role="radio" aria-checked="false" tabindex="0">
+            <div class="pan-icon">🫓</div><div class="pan-name">Fajita</div><div class="pan-price">+$2.500</div>
+          </div>
+          <div class="pan-card" onclick="selectPan('Ciabatta',2500,this)" role="radio" aria-checked="false" tabindex="0">
+            <div class="pan-icon">🍞</div><div class="pan-name">Ciabatta</div><div class="pan-price">+$2.500</div>
+          </div>
+          <div class="pan-card" onclick="selectPan('Marraqueta',2000,this)" role="radio" aria-checked="false" tabindex="0">
+            <div class="pan-icon">🥖</div><div class="pan-name">Marraqueta</div><div class="pan-price">+$2.000</div>
+          </div>
+          <div class="pan-card" onclick="selectPan('Brioche',2000,this)" role="radio" aria-checked="false" tabindex="0">
+            <div class="pan-icon">🍞</div><div class="pan-name">Brioche</div><div class="pan-price">+$2.000</div>
+          </div>
+        </div>
+        <div class="pan-error" id="mPanError" role="alert">⚠ Debes seleccionar tu pan antes de agregar</div>
+      </div>
+      <!-- EXTRAS -->
+      <div class="modal-section" id="mExtrasSection">
+        <div class="modal-section-title">➕ AGREGA INGREDIENTES</div>
+        <div class="extras-featured">
+          <div class="extra-card" onclick="toggleExtra('Palta',1500,this)" role="checkbox" aria-checked="false" tabindex="0">
+            <div class="extra-check">✓</div><div class="extra-icon">🥑</div><div class="extra-name">Palta</div><div class="extra-price">+$1.500</div>
+          </div>
+          <div class="extra-card" onclick="toggleExtra('Tocino',1500,this)" role="checkbox" aria-checked="false" tabindex="0">
+            <div class="extra-check">✓</div><div class="extra-icon">🥓</div><div class="extra-name">Tocino</div><div class="extra-price">+$1.500</div>
+          </div>
+          <div class="extra-card" onclick="toggleExtra('Queso Cheddar',1200,this)" role="checkbox" aria-checked="false" tabindex="0">
+            <div class="extra-check">✓</div><div class="extra-icon">🧀</div><div class="extra-name">Cheddar</div><div class="extra-price">+$1.200</div>
+          </div>
+        </div>
+        <button class="extras-toggle-btn" id="extrasToggleBtn" onclick="toggleExtrasMore()">
+          <span class="et-arrow">▾</span> Ver más ingredientes
+        </button>
+        <div class="extras-more-panel" id="extrasMorePanel">
+          <div class="extras-more-grid">
+            <div class="extra-card" onclick="toggleExtra('Cebolla Caramelizada',1000,this)" role="checkbox" tabindex="0">
+              <div class="extra-check">✓</div><div class="extra-icon">🧅</div><div class="extra-name">Cebolla Car.</div><div class="extra-price">+$1.000</div>
+            </div>
+            <div class="extra-card" onclick="toggleExtra('Champiñones',1200,this)" role="checkbox" tabindex="0">
+              <div class="extra-check">✓</div><div class="extra-icon">🍄</div><div class="extra-name">Champiñones</div><div class="extra-price">+$1.200</div>
+            </div>
+            <div class="extra-card" onclick="toggleExtra('Jalapeños',800,this)" role="checkbox" tabindex="0">
+              <div class="extra-check">✓</div><div class="extra-icon">🌶️</div><div class="extra-name">Jalapeños</div><div class="extra-price">+$800</div>
+            </div>
+            <div class="extra-card" onclick="toggleExtra('Huevo Frito',800,this)" role="checkbox" tabindex="0">
+              <div class="extra-check">✓</div><div class="extra-icon">🍳</div><div class="extra-name">Huevo Frito</div><div class="extra-price">+$800</div>
+            </div>
+            <div class="extra-card" onclick="toggleExtra('Queso Gouda',1200,this)" role="checkbox" tabindex="0">
+              <div class="extra-check">✓</div><div class="extra-icon">🫕</div><div class="extra-name">Queso Gouda</div><div class="extra-price">+$1.200</div>
+            </div>
+            <div class="extra-card" onclick="toggleExtra('Salsa BBQ',700,this)" role="checkbox" tabindex="0">
+              <div class="extra-check">✓</div><div class="extra-icon">🔥</div><div class="extra-name">Salsa BBQ</div><div class="extra-price">+$700</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- UPSELL -->
+      <div class="upsell-section" id="mUpsellSection">
+        <div class="modal-section-title">🚀 AGREGA ALGO MÁS</div>
+        <div class="upsell-grid">
+          <div class="upsell-card" onclick="toggleUpsell('Coca Cola',2000,this)" role="checkbox" tabindex="0">
+            <div class="upsell-check">✓</div><div class="upsell-icon">🥤</div><div class="upsell-name">Coca Cola</div><div class="upsell-price">+$2.000</div>
+          </div>
+          <div class="upsell-card" onclick="toggleUpsell('Papas Suprema',4500,this)" role="checkbox" tabindex="0">
+            <div class="upsell-check">✓</div><div class="upsell-icon">🍟</div><div class="upsell-name">Papas Suprema</div><div class="upsell-price">+$4.500</div>
+          </div>
+          <div class="upsell-card" onclick="toggleUpsell('Cheesecake',4500,this)" role="checkbox" tabindex="0">
+            <div class="upsell-check">✓</div><div class="upsell-icon">🍰</div><div class="upsell-name">Cheesecake</div><div class="upsell-price">+$4.500</div>
+          </div>
+        </div>
+      </div>
+      <!-- MARIDAJE -->
+      <div class="pairing-box" id="mPairing" style="display:none">
+        🍹 <span>Maridaje sugerido: <strong id="mPairingText"></strong></span>
+      </div>
+      <!-- ORDER SUMMARY -->
+      <div class="order-summary">
+        <div class="os-row" id="osRowProd">
+          <span class="os-label">Producto</span>
+          <span class="os-value" id="osProd">—</span>
+        </div>
+        <div class="os-row" id="osRowPan" style="display:none">
+          <span class="os-label">Pan</span>
+          <div class="os-value" id="osPan"></div>
+        </div>
+        <div class="os-row" id="osRowExtras" style="display:none">
+          <span class="os-label">Extras</span>
+          <div class="os-value" id="osExtras"></div>
+        </div>
+        <div class="os-row" id="osRowUpsell" style="display:none">
+          <span class="os-label">Más</span>
+          <div class="os-value" id="osUpsell"></div>
+        </div>
+        <div class="os-row">
+          <span class="os-label">Cantidad</span>
+          <span class="os-value" id="osQty">1</span>
+        </div>
+      </div>
+      <div class="os-total-row">
+        <span class="os-total-label">TOTAL</span>
+        <span class="os-total-num" id="osTotalNum">$0</span>
+      </div>
+      <!-- QTY -->
+      <div class="modal-qty-row">
+        <button class="modal-qty-btn" onclick="adjustQty(-1)" aria-label="Reducir cantidad">−</button>
+        <span class="modal-qty-num" id="mQty">1</span>
+        <button class="modal-qty-btn" onclick="adjustQty(+1)" aria-label="Aumentar cantidad">+</button>
+      </div>
+      <!-- PRODUCTOS RELACIONADOS -->
+      <div class="modal-related" id="mRelated"></div>
+    </div>
+    <!-- BOTONES ACCIÓN (sticky bottom) -->
+    <div class="modal-actions">
+      <button class="btn-modal-wa" onclick="waProduct()" aria-label="Pedir por WhatsApp">💬</button>
+      <button class="btn-modal-add" onclick="addFromModal()">
+        🛒 Agregar al Carrito
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     MODAL DE RESERVA (rápido)
+     ════════════════════════════════════ -->
+<div class="res-modal-overlay" id="resModal" role="dialog" aria-modal="true" aria-label="Reservar mesa">
+  <div class="res-modal-box">
+    <button class="res-modal-close" onclick="closeResModal()" aria-label="Cerrar">✕</button>
+    <div class="res-modal-title">📅 Reservar Mesa</div>
+    <div class="fg-row">
+      <div class="fg"><label class="fl" for="rmNombre">Nombre</label><input type="text" class="fi" id="rmNombre" placeholder="Tu nombre"></div>
+      <div class="fg"><label class="fl" for="rmTel">WhatsApp</label><input type="tel" class="fi" id="rmTel" placeholder="+56 9 XXXX"></div>
+    </div>
+    <div class="fg-row">
+      <div class="fg"><label class="fl" for="rmFecha">Fecha</label><input type="date" class="fi" id="rmFecha"></div>
+      <div class="fg"><label class="fl" for="rmHora">Hora</label>
+        <select class="fi" id="rmHora">
+          <option>18:00</option><option>19:00</option><option>20:00</option>
+          <option>21:00</option><option>22:00</option><option>23:00</option>
+        </select>
+      </div>
+    </div>
+    <div class="fg"><label class="fl" for="rmPersonas">Personas</label>
+      <select class="fi" id="rmPersonas">
+        <option>1</option><option>2</option><option selected>3</option>
+        <option>4</option><option>5</option><option>6</option><option>8+</option>
+      </select>
+    </div>
+    <button class="btn-form" onclick="enviarReservaModal()">💬 Confirmar por WhatsApp</button>
+  </div>
+</div>
+
+<!-- WHATSAPP POPUP -->
+<div id="waPopup" style="display:none;position:fixed;bottom:5.5rem;right:1.5rem;z-index:889;background:var(--g2);border:1px solid rgba(37,211,102,.25);border-radius:var(--r-xl);padding:1rem;width:280px;box-shadow:0 8px 30px rgba(0,0,0,.5)">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
+    <div style="font-family:var(--font-d);font-size:.9rem;color:#25D366">💬 CHATEAR CON NOSOTROS</div>
+    <button onclick="document.getElementById('waPopup').style.display='none'" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:.9rem">✕</button>
+  </div>
+  <textarea id="waInput" class="fi" rows="2" placeholder="Escribe tu mensaje…" style="margin-bottom:.6rem;min-height:60px"></textarea>
+  <button class="btn btn--wa btn-block" onclick="waSendInput()">💬 Enviar mensaje</button>
+  <div style="display:flex;gap:.5rem;margin-top:.5rem;flex-wrap:wrap">
+    <button class="btn btn--ghost btn-sm" onclick="WA.send('Hola! Quiero ver el menú')">Ver menú</button>
+    <button class="btn btn--ghost btn-sm" onclick="WA.send('Hola! Quiero reservar una mesa')">Reservar</button>
+    <button class="btn btn--ghost btn-sm" onclick="WA.send('Hola! Quiero pedir delivery')">Delivery</button>
+  </div>
+</div>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" aria-label="Volver arriba" title="Volver arriba">↑</button>
+
+<!-- WHATSAPP FLOTANTE -->
+<a class="wa-float" href="https://wa.me/56988252884" target="_blank" rel="noopener" aria-label="WhatsApp Mecharon de Casa" title="Chatear por WhatsApp">💬</a>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner" role="alertdialog" aria-label="Aviso de cookies">
+  <p class="cookie-text">
+    Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra
+    <a href="#">política de privacidad</a>.
+  </p>
+  <div class="cookie-btns">
+    <button class="btn btn--ghost btn-sm" onclick="rejectCookies()">Rechazar</button>
+    <button class="btn btn--yellow btn-sm" onclick="acceptCookies()">Aceptar</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ════════════════════════════════════
+     JAVASCRIPT — Orden estricto
+     ════════════════════════════════════ -->
+<script src="assets/js/app.js"></script>
+<script src="assets/js/menu.js"></script>
+<script src="assets/js/upsells.js"></script>
+<script src="assets/js/cart.js"></script>
+<script src="assets/js/modal.js"></script>
+<script src="assets/js/promociones.js"></script>
+<script src="assets/js/mercadoPago.js"></script>
+<script src="assets/js/whatsapp.js"></script>
+
+<!-- INLINE: funciones específicas del index -->
+<script>
+'use strict';
+
+/* ── ABRIR / CERRAR MODAL DE RESERVA ── */
+function openResModal() {
+  const m = document.getElementById('resModal');
+  if (m) {
+    m.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    const today = new Date().toISOString().split('T')[0];
+    const rmFecha = document.getElementById('rmFecha');
+    if (rmFecha && !rmFecha.min) rmFecha.min = today;
+  }
+}
+
+function closeResModal() {
+  const m = document.getElementById('resModal');
+  if (m) { m.classList.remove('open'); document.body.style.overflow = ''; }
+}
+
+document.getElementById('resModal')?.addEventListener('click', e => {
+  if (e.target === e.currentTarget) closeResModal();
+});
+
+/* ── ENVIAR RESERVA (sección principal) ── */
+function enviarReserva() {
+  const nombre   = document.getElementById('resNombre')?.value.trim();
+  const telefono = document.getElementById('resTelefono')?.value.trim();
+  const fecha    = document.getElementById('resFecha')?.value;
+  const hora     = document.getElementById('resHora')?.value;
+  const personas = document.getElementById('resPersonas')?.value;
+  const ocasion  = document.getElementById('resOcasion')?.value;
+  const notas    = document.getElementById('resNotas')?.value.trim();
+
+  if (!nombre || !telefono || !fecha || !hora) {
+    MDCUtils.showToast('⚠ Completa los campos obligatorios', 'warning');
+    return;
+  }
+
+  WA.sendReservation({ name: nombre, phone: telefono, fecha, hora, personas, ocasion, notes: notas });
+}
+
+/* ── ENVIAR RESERVA (modal rápido) ── */
+function enviarReservaModal() {
+  const nombre   = document.getElementById('rmNombre')?.value.trim();
+  const telefono = document.getElementById('rmTel')?.value.trim();
+  const fecha    = document.getElementById('rmFecha')?.value;
+  const hora     = document.getElementById('rmHora')?.value;
+  const personas = document.getElementById('rmPersonas')?.value;
+
+  if (!nombre || !telefono || !fecha) {
+    MDCUtils.showToast('⚠ Completa nombre, teléfono y fecha', 'warning');
+    return;
+  }
+
+  WA.sendReservation({ name: nombre, phone: telefono, fecha, hora, personas, notes: '' });
+  closeResModal();
+}
+
+/* ── HERO PARTICLES (decorativo) ── */
+(function initParticles() {
+  const container = document.getElementById('heroParticles');
+  if (!container) return;
+  for (let i = 0; i < 12; i++) {
+    const p = document.createElement('div');
+    p.className = 'hero-particle';
+    p.style.cssText = `
+      position:absolute;
+      width:${2 + Math.random()*3}px;
+      height:${2 + Math.random()*3}px;
+      background:rgba(245,196,0,${.15 + Math.random()*.25});
+      border-radius:50%;
+      top:${Math.random()*100}%;
+      left:${Math.random()*100}%;
+      animation:heroParticleDrift ${8+Math.random()*6}s ease-in-out infinite;
+      animation-delay:${-Math.random()*8}s;
+    `;
+    container.appendChild(p);
+  }
+})();
+</script>
+
+<style>
+/* Hero particles animation */
+@keyframes heroParticleDrift {
+  0%,100% { transform: translate(0,0) scale(1); opacity:.3; }
+  33%      { transform: translate(20px,-30px) scale(1.4); opacity:.7; }
+  66%      { transform: translate(-15px,20px) scale(.8); opacity:.2; }
+}
+</style>
+
+</body>
+</html>
